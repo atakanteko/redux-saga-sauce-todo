@@ -2,7 +2,8 @@ import { put as sagaPut, call } from "redux-saga/effects";
 import { fetchTodos } from "../requests/todos";
 import { TodoActions  } from "../../actions/todo";
 
-function* handleFetchTodos() {
+function* handleFetchTodos(action) {
+    console.log("ac", action);
     try {
         const todos = yield call(fetchTodos);
         yield sagaPut(TodoActions.fetchTodoSuccess(todos))

@@ -36,10 +36,11 @@ const getTodosRequest = (state = initialState) => ({
     loading: true
 });
 
-const fetchSuccess = (state = initialState, { payload }) => {
+const fetchSuccess = (state = initialState, action) => {
+    console.log(action);
     return {
         ...state,
-        todoList: payload.data.slice(0,10),
+        todoList: action.payload.data.slice(0,10),
         loading: false,
     }
 }
